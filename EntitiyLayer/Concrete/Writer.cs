@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,12 +16,20 @@ namespace EntitiyLayer.Concrete
         public string WriterName { get; set; }
         [StringLength(50)]
         public string WriterSurName { get; set; }
-        [StringLength(100)]
+        [StringLength(250)]
         public string WriterImage { get; set; }
-        [StringLength(50)]
+        [StringLength(250)]
+        public string WriterAbout { get; set; }
+     
+        [StringLength(200)]
         public string WriterMail { get; set; }
-        [StringLength(20)]
+        [StringLength(200)]
         public string WriterPassword { get; set; }
+        [StringLength(50)]
+        public string WriterTitle { get; set; }
+
+
+        public bool WriterStatüs { get; set; }
 
 
         //Bir Yazarın Birden Fazla başlığı olabilir.

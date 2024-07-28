@@ -1,0 +1,29 @@
+﻿@model EntitiyLayer.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Kategori Ekleme Sayfası</h2>
+<br />
+
+
+@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))//beginform-->Sayfa açıldığında ne olsun.1.p-->methotadı 2.p-->controller 3.p-->ekle-sil-listeleye göre post mu get mi kullanacksın.
+{
+    <div class="form-group">
+
+
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", PlaceHolder = "Kategori Adı" })
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+        <br />
+
+        @Html.TextAreaFor(x => x.CategoryDescription,5,1 ,new { @class = "form-control", PlaceHolder = "Kategori Açıklaması" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" })
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+
+
+    </div>
+}
+

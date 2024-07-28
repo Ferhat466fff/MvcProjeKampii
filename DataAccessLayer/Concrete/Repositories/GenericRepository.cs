@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Repositories
 {
+    ////Methotların içini genericrepostiry dolduruyoruz.
     //Genericrepository-->Sayaesinde Crud işlemlerini tek tek categori,başlık.. yazmamıza gerek kalmıyor tek bir yapı kullanrak yapıyruz.
     public class GenericRepository<T> : IRepository<T> where T : class
     {
@@ -20,15 +21,23 @@ namespace DataAccessLayer.Concrete.Repositories
             _object = c.Set<T>();
         }
 
-        public void Delete(T p)
+        public void Delete(T p)//Silmeyi entitiystate ile silmr yapmayı dendeik
         {
-            _object.Remove(p);
+            var delete = c.Entry(p);
+            delete.State = EntityState.Deleted;
             c.SaveChanges();
         }
 
-        public void Insert(T p)
+        public T Get(Expression<Func<T, bool>> filter)
         {
-            _object.Add(p);
+            return _object.SingleOrDefault(filter);
+            //singleordefault entitiy framework kendi methodu biz yazmadık.Geriye sadece bir değer döndürecektik o yüzden.
+        }
+
+        public void Insert(T p)//Eklemeyi entitiystate ile ekleme yapmayı dendeik
+        {
+            var add = c.Entry(p);
+            add.State = EntityState.Added;
             c.SaveChanges();
         }
 
@@ -44,7 +53,8 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T p)
         {
-           
+            var update = c.Entry(p);
+            update.State = EntityState.Modified;//modified değiştri anlamında
             c.SaveChanges();
         }
     }

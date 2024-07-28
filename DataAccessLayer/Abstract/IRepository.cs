@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IRepository<T>//Crud işlemleri Irepositoryde diğer interfacelere miras veriyoruz.
+    public interface IRepository<T>//Burası İmza kısmı imza attık Methotların içini genericrepostiry dolduruyoruz.
     {
-        List<T> List();
+        List<T> List();//herkesi listeleme.
         void Insert(T p);
+        T Get(Expression<Func<T, bool>> filter);//Id Göre Alma
         void Delete(T p);
         void Update(T p);
 
-        List<T> List(Expression<Func<T, bool>> filter);//Filtreleme Methodu
+        List<T> List(Expression<Func<T, bool>> filter);//Filtreleme Methodu(listeleme)
     }
 }

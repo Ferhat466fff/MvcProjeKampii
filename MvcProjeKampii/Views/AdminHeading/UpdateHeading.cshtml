@@ -1,0 +1,39 @@
+﻿@model EntitiyLayer.Concrete.Heading
+@{
+    ViewBag.Title = "UpdateHeading";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3>Başlık Güncelleme Sayafası</h3>
+<br />
+
+@using (Html.BeginForm("UpdateHeading", "AdminHeading", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.HeadingId)
+        <label>Başlık Adı</label>
+        @Html.TextBoxFor(x => x.HeadingName, new { PlaceHolder = "Başlık Adı", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.HeadingName)
+        <br />
+
+        <label>Kategori</label>
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.tasi, new { PlaceHolder = "Kategorisi", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryId)
+        <br />
+
+
+
+        @Html.HiddenFor(x => x.HeadingDate, new { PlaceHolder = "Tarih", @class = "form-control" })@*Taih ve yazar değişmesin diye gizledik.*@
+        @Html.ValidationMessageFor(x => x.HeadingDate)
+  
+
+        @Html.HiddenFor(x => x.WriterId, new { PlaceHolder = "Başlık Adı", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterId)
+    
+
+
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+}
+
+

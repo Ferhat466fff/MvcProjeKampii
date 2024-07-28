@@ -14,6 +14,7 @@ namespace EntitiyLayer.Concrete
         [StringLength(100)]
         public string HeadingName { get; set; }
         public DateTime HeadingDate { get; set; }
+        public bool HeadingStatus { get; set; }
 
         //her Bir Kategorinin Birden fazla başlığı olacak.(herbir kategori dedik kategoriye ıcollection verdik)
         public int CategoryId { get; set; }

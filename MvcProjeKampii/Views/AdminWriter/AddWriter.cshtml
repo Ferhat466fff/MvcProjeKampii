@@ -1,0 +1,43 @@
+﻿@model EntitiyLayer.Concrete.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yazar Ekleme Sayfası</h2>
+<br />
+
+
+@using (Html.BeginForm("AddWriter", "AdminWriter", FormMethod.Post))//beginform-->Sayfa açıldığında ne olsun.1.p-->methotadı 2.p-->controller 3.p-->ekle-sil-listeleye göre post mu get mi kullanacksın.
+{
+    <div class="form-group">
+
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control", PlaceHolder = "Görsel seçiniz" })
+        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+        <br />
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control", PlaceHolder = "Ünvan" })
+        @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
+        <br />
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control", PlaceHolder = "İsim" })
+        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+        <br />
+        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control", PlaceHolder = "Soyisim" })
+        @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
+        <br />
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", PlaceHolder = "Mail" })
+        @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+        <br />
+        @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control", PlaceHolder = "Şifre" })
+        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+        <br />
+
+        @Html.TextAreaFor(x => x.WriterAbout, 5, 1, new { @class = "form-control", PlaceHolder = "Hakkınnda" })
+        @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+        <br />
+
+        <button class="btn btn-primary">Ekle</button>
+
+
+    </div>
+}
+
