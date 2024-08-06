@@ -17,7 +17,7 @@
     @Html.DropDownListFor(x => x.CategoryId,(List<SelectListItem>)ViewBag.tasi, new { PlaceHolder = "Kategorisi", @class = "form-control" })
     @Html.ValidationMessageFor(x => x.CategoryId)
     <br />
-    @Html.DropDownListFor(x => x.WriterId,(List<SelectListItem>)ViewBag.tasi2, new { PlaceHolder = "Yazarı", @class = "form-control" })
+    @Html.DropDownListFor(x => x.WriterId,(List<SelectListItem>)ViewBag.tasi, new { PlaceHolder = "Yazarı", @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterId)
     <br />
     <button class="btn btn-primary">Ekle</button>

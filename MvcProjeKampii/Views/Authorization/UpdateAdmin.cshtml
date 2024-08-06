@@ -1,0 +1,40 @@
+﻿@model EntitiyLayer.Concrete.Admin
+
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Admin Güncelleme Sayfası</h2>
+<br />
+
+
+@using (Html.BeginForm("UpdateAdmin", "Authorization", FormMethod.Post))//beginform-->Sayfa açıldığında ne olsun.1.p-->methotadı 2.p-->controller 3.p-->ekle-sil-listeleye göre post mu get mi kullanacksın.
+{
+    <div class="form-group">
+
+        @Html.HiddenFor(x => x.AdminId)
+
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", PlaceHolder = "Kullanıcı Adı" })
+        @* @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })*@
+        <br />
+
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control", PlaceHolder = "Şifre" })
+        @* @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger" }) *@
+        <br />
+
+        @Html.DropDownListFor(x => x.AdminRole,(List<SelectListItem>)ViewBag.tasi, new { @class = "form-control", PlaceHolder = "Rolü Seçiniz" })
+        @* @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })*@
+        <br />
+
+
+        <button class="btn btn-outline-primary">Kaydet</button>
+
+
+    </div>
+}
+
+
+
+
+

@@ -15,5 +15,7 @@ namespace BusinessLayer.Abstract
         void CategoryDelete(Contact contact);
         void UpdateCategory(Contact contact);
         int GetContactCount();
+
+        void ToggleReadStatus(int id);
     }
 }

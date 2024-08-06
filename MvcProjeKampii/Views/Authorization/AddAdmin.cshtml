@@ -1,0 +1,24 @@
+﻿@model EntitiyLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Admin Ekleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("AddAdmin", "Authorization", FormMethod.Post)) // BeginForm--> Sayfa açıldığında ne olsun. 1.p--> method adı 2.p--> controller 3.p--> ekle-sil-listeleye göre post mu get mi kullanacaksın.
+{
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+        <br />
+
+        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control", placeholder = "Şifre" })
+        <br />
+
+        @Html.DropDownListFor(x => x.AdminRole, (List<SelectListItem>)ViewBag.tasi, new { @class = "form-control", placeholder = "Rolü Seçiniz" })
+        <br />
+
+        <button class="btn btn-outline-primary">Kaydet</button>
+    </div>
+}

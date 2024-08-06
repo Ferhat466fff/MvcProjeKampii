@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace MvcProjeKampii.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EFCategoryDal(), new EFHeadingDal());//CategoryManager(crud işlemleri) efcategory kullanıyoruz.
-        [Authorize]//Erişim İzni yok.
-        //Kategori Listeleme
-        public ActionResult Index()
+        [Authorize(Roles="A")]//Erişim İzni yok(Rolü A olanlara erişim izni var ).
+
+
+        //Kategori Listeleme ve Sayfalama
+        public ActionResult Index(int p=1)
         {
-            var values = cm.GetList();
+            var values = cm.GetList().ToPagedList(p,4);//Sayfa 1 den başlayacak 4 erli sıralanacak.
             return View(values);
         }
 

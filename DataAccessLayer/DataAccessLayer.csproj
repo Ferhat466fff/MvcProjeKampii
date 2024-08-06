@@ -58,19 +58,23 @@
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\Repositories\WriterRepository.cs" />
     <Compile Include="EntityFramework\EFAboutDal.cs" />
+    <Compile Include="EntityFramework\EFAdminDal.cs" />
     <Compile Include="EntityFramework\EFCategoryDal.cs" />
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
     <Compile Include="EntityFramework\EFHeadingDal.cs" />
     <Compile Include="EntityFramework\EFImageFileDal.cs" />
     <Compile Include="EntityFramework\EFMessageDal.cs" />
+    <Compile Include="EntityFramework\EFSkillDal.cs" />
     <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202407190800394__mig1.cs" />
     <Compile Include="Migrations\202407190800394__mig1.designer.cs">
@@ -119,6 +123,42 @@
     <Compile Include="Migrations\202407281212225_mig_admin_table.cs" />
     <Compile Include="Migrations\202407281212225_mig_admin_table.Designer.cs">
       <DependentUpon>202407281212225_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311438297_mig_status_added.cs" />
+    <Compile Include="Migrations\202407311438297_mig_status_added.Designer.cs">
+      <DependentUpon>202407311438297_mig_status_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311516585__mig_Contact_Status_added.cs" />
+    <Compile Include="Migrations\202407311516585__mig_Contact_Status_added.Designer.cs">
+      <DependentUpon>202407311516585__mig_Contact_Status_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311519213__mig_deleteStatus.cs" />
+    <Compile Include="Migrations\202407311519213__mig_deleteStatus.Designer.cs">
+      <DependentUpon>202407311519213__mig_deleteStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311520422__migr.cs" />
+    <Compile Include="Migrations\202407311520422__migr.Designer.cs">
+      <DependentUpon>202407311520422__migr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311521423_mig_add_status_contact.cs" />
+    <Compile Include="Migrations\202407311521423_mig_add_status_contact.Designer.cs">
+      <DependentUpon>202407311521423_mig_add_status_contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407311544410_active_passive_About_added.cs" />
+    <Compile Include="Migrations\202407311544410_active_passive_About_added.Designer.cs">
+      <DependentUpon>202407311544410_active_passive_About_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408051338088_mig_Admin_ImageAdded.cs" />
+    <Compile Include="Migrations\202408051338088_mig_Admin_ImageAdded.Designer.cs">
+      <DependentUpon>202408051338088_mig_Admin_ImageAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408051524244_mig_SkillTable_added.cs" />
+    <Compile Include="Migrations\202408051524244_mig_SkillTable_added.Designer.cs">
+      <DependentUpon>202408051524244_mig_SkillTable_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408051840570_mig_CategoryDescriptipn_CategoryDescription_set.cs" />
+    <Compile Include="Migrations\202408051840570_mig_CategoryDescriptipn_CategoryDescription_set.Designer.cs">
+      <DependentUpon>202408051840570_mig_CategoryDescriptipn_CategoryDescription_set.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +209,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407281212225_mig_admin_table.resx">
       <DependentUpon>202407281212225_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311438297_mig_status_added.resx">
+      <DependentUpon>202407311438297_mig_status_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311516585__mig_Contact_Status_added.resx">
+      <DependentUpon>202407311516585__mig_Contact_Status_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311519213__mig_deleteStatus.resx">
+      <DependentUpon>202407311519213__mig_deleteStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311520422__migr.resx">
+      <DependentUpon>202407311520422__migr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311521423_mig_add_status_contact.resx">
+      <DependentUpon>202407311521423_mig_add_status_contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407311544410_active_passive_About_added.resx">
+      <DependentUpon>202407311544410_active_passive_About_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408051338088_mig_Admin_ImageAdded.resx">
+      <DependentUpon>202408051338088_mig_Admin_ImageAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408051524244_mig_SkillTable_added.resx">
+      <DependentUpon>202408051524244_mig_SkillTable_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408051840570_mig_CategoryDescriptipn_CategoryDescription_set.resx">
+      <DependentUpon>202408051840570_mig_CategoryDescriptipn_CategoryDescription_set.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

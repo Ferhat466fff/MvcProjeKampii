@@ -38,6 +38,23 @@ namespace BusinessLayer.Concrete
             return _aboutDal.List();
         }
 
+        public void ToggleActiveStatus(int id)
+        {
+           var values =_aboutDal.Get(x => x.AboutId == id);
+            if(values != null)
+            {
+                if(values.IsActive==true)
+                {
+                    values.IsActive = false;
+                }
+                else
+                {
+                    values.IsActive = true;
+                }
+            }
+            _aboutDal.Update(values);
+        }
+
         public void UpdateAbout(About about)
         {
           _aboutDal.Update(about);

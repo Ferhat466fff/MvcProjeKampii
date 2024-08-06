@@ -1,0 +1,26 @@
+﻿@model EntitiyLayer.Concrete.Heading
+
+@{
+    ViewBag.Title = "AddHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3>Başlık EKleme Sayafası</h3>
+<br />
+
+@using (Html.BeginForm("AddHeading", "WriterPanel", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.TextBoxFor(x => x.HeadingName, new { PlaceHolder = "Başlık Adı", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.HeadingName)
+        <br />
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.tasi, new { PlaceHolder = "Kategorisi", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryId)
+        <br />
+        <button class="btn btn-primary">Ekle</button>
+    </div>
+}
+
+
+

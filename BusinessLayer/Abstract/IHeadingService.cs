@@ -14,8 +14,10 @@ namespace BusinessLayer.Abstract
         Heading GetById(int id);
         void HeadingDelete(Heading heading);
         void HeadingUpdate(Heading heading);
+        List<Heading> GetByWriterList(int id);//Şartlı Listeleme(yazara göre)
 
-     
+
+
 
     }
 }

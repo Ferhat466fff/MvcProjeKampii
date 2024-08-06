@@ -45,6 +45,23 @@ namespace BusinessLayer.Concrete
            return _contactDal.List();
         }
 
+        public void ToggleReadStatus(int id)
+        {
+            var values = _contactDal.Get(x => x.ContactId== id);
+            if(values != null)
+            {
+                if(values.IsRead==true)
+                {
+                    values.IsRead = false;
+                }
+                else
+                {
+                    values.IsRead = true;
+                }
+                _contactDal.Update(values);
+            }
+        }
+    
         public void UpdateCategory(Contact contact)
         {
           _contactDal.Update(contact);

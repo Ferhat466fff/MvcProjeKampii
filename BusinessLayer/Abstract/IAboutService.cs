@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         About GetByID(int id);//Id göre alma.
         void AboutDelete(About about);
         void UpdateAbout(About about);
+        void ToggleActiveStatus(int id); // Aktif/pasif durumu yapma
     }
 }

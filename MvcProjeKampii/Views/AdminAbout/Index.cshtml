@@ -2,30 +2,39 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int count = 0;
 }
 
-
 <h3>Hakkımda Veri Listesi</h3>
-
+<br />
 <table class="table table-bordered">
-
     <tr>
         <th>#</th>
         <th>Hakkımda Başlığı</th>
-        <th>Aktif Yap</th>
-        <th>Pasif Yap</th>
+        <th>İşlemler</th>
     </tr>
     @foreach (var item in Model)
     {
+        count++;
         <tr>
-            <th>@item.AboutId</th>
-            <td>başlık</td>
-            <td><a href="#" class="btn btn-outline-danger">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-outline-danger">Pasif Yap</a></td>
+            <th>@count</th>
+            <td>@item.AboutDetails1</td>
+            <td>
+                @if (!item.IsActive)
+                {
+                    <form action="/AdminAbout/ToggleActiveStatus/@item.AboutId" method="post">
+                        <button type="submit" class="btn btn-outline-success">Aktif Yap</button>
+                    </form>
+                }
+                @if (item.IsActive)
+                {
+                    <form action="/AdminAbout/ToggleActiveStatus/@item.AboutId" method="post">
+                        <button type="submit" class="btn btn-outline-danger">Pasif Yap</button>
+                    </form>
+                }
+            </td>
+           
         </tr>
     }
 </table>
-@Html.Action("AboutPartial","AdminAbout")
-
-
-
+@Html.Action("AboutPartial", "AdminAbout")

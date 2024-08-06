@@ -36,5 +36,14 @@ namespace MvcProjeKampii.Controllers
             
             return PartialView();
         }
+
+
+        //Aktif Pasif Yapma Durumu
+        [HttpPost]
+        public ActionResult ToggleActiveStatus(int id)
+        {
+            am.ToggleActiveStatus(id);
+            return RedirectToAction("Index");
+        }
     }
 }

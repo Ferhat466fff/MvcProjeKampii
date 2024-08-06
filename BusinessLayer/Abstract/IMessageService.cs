@@ -9,14 +9,15 @@ namespace BusinessLayer.Abstract
 {
     public interface IMessageService
     {
-        List<Message> GetListInbox();//Gelen Mesajlar
-        List<Message> GetListSendbox();//GönderilenMesajlar
+        List<Message> GetListInbox(string p);//Gelen Mesajlar
+        List<Message> GetListSendbox(string p);//GönderilenMesajlar
         void MessageAdd(Message message);
         Message GetByID(int id);//Id göre alma.
         void MessageDelete(Message message);
         void MessageUpdate(Message message);
         int GetSendboxMessageCount();//Göndeilen Mesaj Sayısı
         int GetReciverMessageCount();
+        void ToggleReadStatus(int Id);//Mesajı okundu okunmadı özelliği.
 
     }
 }

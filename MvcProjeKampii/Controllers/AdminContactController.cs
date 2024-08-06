@@ -39,5 +39,16 @@ namespace MvcProjeKampii.Controllers
             return PartialView();
         }
 
+        //Okundu-Okunmadı(İletişim Kısmına)
+        public ActionResult IsRead(int id)
+        {
+            cm.ToggleReadStatus(id);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
     }
 }

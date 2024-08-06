@@ -1,4 +1,6 @@
-﻿@model List<EntitiyLayer.Concrete.Writer>
+﻿@model PagedList.PagedList<EntitiyLayer.Concrete.Writer>
+@using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -43,7 +45,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-5 text-center">
-                                            <img src="~/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                            <img src="@item.WriterImage" alt="" class="img-circle img-fluid">
                                         </div>
                                     </div>
                                 </div>
@@ -68,5 +70,14 @@
     <!-- /.content -->
 </body>
 </html>
+@Html.PagedListPager((IPagedList)Model, p => Url.Action("Index", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        "page-link"
+    }@*Page-link css.yani daha güzel görünsün diye yaptık.*@
+})
+@*PagedList Modele Bağlı Olarak Çalışacak.p(controller verdiğimiz parametre p idi.
+    her defasında p değeri oluşturarak Index git *@
 
 

@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace MvcProjeKampii.Controllers
@@ -15,18 +17,22 @@ namespace MvcProjeKampii.Controllers
         CategoryManager cm = new CategoryManager(new EFCategoryDal(), new EFHeadingDal());
         WriterManager wm = new WriterManager(new EFWriterDal());
         //Başlık Listeleme
-        public ActionResult Index()
+        public ActionResult Index(int p =1)
         {
-            
+            var values = hm.GetList().ToPagedList(p,5);
+            return View(values);
+        }
+        public ActionResult HeadingReport()
+        {
             var values = hm.GetList();
             return View(values);
         }
 
 
-        //Başlık Ekleme
+
 
         // DropDownList ile kategorileri ve yazar seçtirme
-        [HttpGet]
+        [HttpGet]   //Başlık Ekleme
         public ActionResult AddHeading()
         {
             List<SelectListItem> category = (from x in cm.GetList()
@@ -102,8 +108,13 @@ namespace MvcProjeKampii.Controllers
 
 
 
+        /*	  <!--Hata Mesajları-->
+	  <customErrors mode = "On" >
 
-
+          < error statusCode="404" redirect="/ErrorPage/Page404/"/>
+	  </customErrors>
+	  <!--Hata Mesajları-->
+        */
 
 
 

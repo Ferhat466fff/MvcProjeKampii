@@ -1,0 +1,46 @@
+﻿@model EntitiyLayer.Concrete.Writer
+@{
+    ViewBag.Title = "WriterProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Profilinizi Düzenleyin</h2>
+<br />
+
+@using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post, new { enctype = "multipart/form-data" })) // enctype ekledik
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.WriterId)
+        <label>Görsel</label>
+        <input type="file" name="WriterImage" class="form-control" />
+        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+        <br />
+        <label>Ünvan</label>
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
+        <br />
+        <label>İsim</label>
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+        <br />
+        <label>Soyisim</label>
+        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
+        <br />
+        <label>Mail</label>
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+        <br />
+
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+        <br />
+        <label>Hakkında</label>
+        @Html.TextAreaFor(x => x.WriterAbout, 5, 1, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+        <br />
+
+        <button class="btn btn-primary">Değişiklikleri Uygula</button>
+    </div>
+}

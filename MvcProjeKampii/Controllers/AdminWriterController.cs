@@ -4,10 +4,12 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace MvcProjeKampii.Controllers
@@ -18,9 +20,9 @@ namespace MvcProjeKampii.Controllers
 
 
         //Yazar Listeleme
-        public ActionResult Index()
+        public ActionResult Index(int p=1)
         {
-            var values = wr.GetList();
+            var values = wr.GetList().ToPagedList(p,6);
             return View(values);
         }
 
@@ -51,7 +53,7 @@ namespace MvcProjeKampii.Controllers
             return View();
         }
 
-        //Kategori Güncelleme
+        //Yazar Güncelleme
         [HttpGet]
         public ActionResult UpdateWriter(int id)
         {
@@ -82,7 +84,7 @@ namespace MvcProjeKampii.Controllers
 
 
 
-
+   
 
 
 

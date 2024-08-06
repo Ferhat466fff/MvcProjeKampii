@@ -23,14 +23,16 @@ namespace MvcProjeKampii.Controllers
         //Alınan Mesajalr
         public ActionResult Inbox()
         {
-            var values = mm.GetListInbox();
+            var p = "admin@gmail.com";
+            var values = mm.GetListInbox(p);
             return View(values);
            
         }
         // Gönderilen Mesajlar
         public ActionResult Sendbox()
         {
-            var values = mm.GetListSendbox();
+            var p = "admin@gmail.com";
+            var values = mm.GetListSendbox(p);
             return View(values);
          
         }
@@ -82,6 +84,28 @@ namespace MvcProjeKampii.Controllers
             var values = mm.GetByID(id);
             return View(values);
         }
+
+
+
+        //okundu-okunmadı özelliği(Gelen Kutusu)
+        public ActionResult IsRead(int id)
+        {
+            mm.ToggleReadStatus(id);
+            return RedirectToAction("Inbox");
+        }
+
+       
+
+
+
+
+
+
+
+
+
+
+
 
 
 

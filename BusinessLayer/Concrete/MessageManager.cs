@@ -23,14 +23,14 @@ namespace BusinessLayer.Concrete
             return _messageDal.Get(x =>x.MessageId == id);
         }
 
-        public List<Message> GetListInbox()//ALıcı Mail
+        public List<Message> GetListInbox(string p)//Alıcı Mail
         {
-            return _messageDal.List(x => x.ReciverMail == "admin@gmail.com");
+            return _messageDal.List(x => x.ReciverMail == p);
         }
 
-        public List<Message> GetListSendbox()//Gönderen Mail
+        public List<Message> GetListSendbox(string p)//Gönderen Mail
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.List(x => x.SenderMail == p);
         }
 
         public int GetReciverMessageCount()
@@ -56,6 +56,24 @@ namespace BusinessLayer.Concrete
         public void MessageUpdate(Message message)
         {
             throw new NotImplementedException();
+        }
+
+        public void ToggleReadStatus(int Id)//Mesajı okundu okunmadı özelliği.
+        {
+            var message = _messageDal.Get(x => x.MessageId == Id);
+            if (message != null)
+            {
+                
+                if (message.status == true)
+                {
+                    message.status = false;
+                }
+                else
+                {
+                    message.status = true;
+                }
+                _messageDal.Update(message);
+            }
         }
     }
 }

@@ -21,6 +21,8 @@ namespace EntitiyLayer.Concrete
         public DateTime ContactDate { get; set; }
 
         public string Message { get; set; }
-     
+
+        public bool IsRead { get; set; }
+
     }
 }

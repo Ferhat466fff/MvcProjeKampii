@@ -1,4 +1,6 @@
-﻿@model List<EntitiyLayer.Concrete.Heading>
+﻿@model PagedList.PagedList<EntitiyLayer.Concrete.Heading>
+@using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -124,4 +126,13 @@
     </section>
 </body>
 </html>
+@Html.PagedListPager((PagedList.IPagedList)Model, p => Url.Action("Index", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        "page-link"
+    }@*Page-link css.yani daha güzel görünsün diye yaptık.*@
+})
+@*PagedList Modele Bağlı Olarak Çalışacak.p(controller verdiğimiz parametre p idi.
+    her defasında p değeri oluşturarak Index git *@
 <a href="/AdminHeading/AddHeading/" class="btn btn-primary">Yeni Başlık Ekle</a>
